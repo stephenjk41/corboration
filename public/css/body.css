@@ -1,0 +1,36 @@
+@font-face {
+  font-family: "vcr_osd_monoregular";
+  src: url("vcr_osd_mono_1.001-webfont.woff2") format("woff2"),
+    url("vcr_osd_mono_1.001-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+html,
+body {
+  margin: 0;
+  height: 100%;
+  font-family: "vcr_osd_monoregular";
+  background-color: black;
+  overflow-y: hidden;
+}
+.corb {
+  position: absolute;
+  z-index: 1;
+  color: white;
+  top: 25%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+  font-size: calc(8px + 0.5vw + 0.5vh);
+}
+
+.soon {
+  position: absolute;
+  z-index: 1;
+  color: white;
+  top: 75%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+  font-size: calc(8px + 0.5vw + 0.5vh);
+}
