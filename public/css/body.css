@@ -60,5 +60,16 @@ li a {
 
 li a:hover {
   z-index: 1;
-  background-color: #111;
+  background-color: #d2d3af;
+}
+
+.right {
+margin-top: 1vh;
+margin-bottom: 1vh;
+margin-right: 1vw;
+  z-index: 1;
+  overflow: hidden;
+  float: right;
+  background-color: #e7e8c2;
+  color: #8a7e96;
 }
