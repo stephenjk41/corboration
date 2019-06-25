@@ -1,0 +1,21 @@
+h3 {
+  position: absolute;
+  z-index: 1;
+  color: black;
+  top: 40%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+  font-size: calc(8px + 0.5vw + 0.5vh);
+}
+
+.test {
+  position: absolute;
+  z-index: 1;
+  color: black;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+  font-size: calc(8px + 0.5vw + 0.5vh);
+}
