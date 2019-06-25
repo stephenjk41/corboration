@@ -1,7 +1,7 @@
 h3 {
   position: absolute;
   z-index: 1;
-  color: black;
+  color: #8a7e96;
   top: 40%;
   left: 50%;
   margin-right: -50%;
@@ -9,10 +9,18 @@ h3 {
   font-size: calc(8px + 0.5vw + 0.5vh);
 }
 
+iframe {
+  margin: 0;
+  padding: 0;
+  border: none;
+  width: 20vw;
+  height: 10vh;
+}
+
 .test {
   position: absolute;
   z-index: 1;
-  color: black;
+  background-color: #e7e8c2;
   top: 50%;
   left: 50%;
   margin-right: -50%;
