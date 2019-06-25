@@ -28,10 +28,10 @@ function main() {
   }
 
   var geometry = new THREE.BoxGeometry(1, 1, 1);
-  var material = new THREE.MeshBasicMaterial({ color: 0xe7e8c2 });
+  var material = new THREE.MeshBasicMaterial({ color: 0x8a7e96 });
   var cube = new THREE.Mesh(geometry, material);
   var geo = new THREE.EdgesGeometry(cube.geometry);
-  var mat = new THREE.LineBasicMaterial({ color: 0x8a7e96, linewidth: 10 });
+  var mat = new THREE.LineBasicMaterial({ color: 0xe7e8c2, linewidth: 10 });
   var wireframe = new THREE.LineSegments(geo, mat);
 
   wireframe.renderOrder = 1; // make sure wireframes are rendered 2nd
@@ -41,7 +41,7 @@ function main() {
 
   camera.position.z = 4;
 
-  var animate = function() {
+  var animate = function () {
     requestAnimationFrame(animate);
 
     cube.rotation.x += 0.01;

@@ -8,6 +8,7 @@ html,
 body {
   margin: 0;
   height: 100%;
+  width: 100%;
   font-family: "vcr_osd_monoregular";
   background-color: #e7e8c2;
   overflow-y: hidden;
@@ -55,11 +56,12 @@ li a {
   text-align: center;
   padding: 1vh 1vw;
   text-decoration: none;
+  font-size: calc(8px + 0.5vw + 0.5vh);
 }
 
 li a:hover {
   z-index: 1;
-  background-color: #d2d3af;
+  background-color: #969777;
 }
 
 .right {
