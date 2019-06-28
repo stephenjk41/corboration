@@ -1,10 +1,12 @@
+<html lang="en">
+
 <html>
 
 <head>
-  <meta charset="UTF-8" />
-  <title>Corborations</title>
+  <title>Corboration</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <link rel="stylesheet" href="css/cube.css">
   <link rel="stylesheet" href="css/body.css">
-  <link rel="stylesheet" href="css/demos.css">
 </head>
 
 <body>
@@ -12,131 +14,21 @@
     <!-- <li><a href="gallery.html">Gallery</a></li> -->
     <li><a href="demos.html">Demos</a></li>
     <!-- <li><a href="shop.html">Shop</a></li>
-    <li><a href="pricing.html">Pricing</a></li> -->
+    <li><a href="pricing.html">Pricing</a></li>  -->
     <li class="right"><a href="index.html">CORBORATIONS</a></li>
   </ul>
-  <!-- <h1>DEMOS</h1> -->
-  <div class="test">
-    <span id="dot-left" class="dot-left"></span>
-    <span id="dot-right" class="dot-right"></span>
-    <h3>/* Sucka4clout */</h3>
-    <audio id="sucka4clout">
-      <source id="sucka4cloutSource" src="" type="audio/mpeg">
-      </source>
-    </audio>
-    <canvas class="buffered" id='buffered' width='150' height='10'></canvas><br>
-    <button onclick='loadPlayPause()'>Play/Pause</button>
-  </div>
 
-  <!--<iframe class="test" src="https://drive.google.com/file/d/1XNX0cSnQGQFn156RETCaAV4_CbcVKIFq/preview"></iframe> -->
+  <canvas id="responsive-canvas"></canvas>
+  <div class="corb">
+    <h1>CORBORATIONS</h1>
+  </div>
+  <div class="soon">
+    <h1>COMING SOON</h1>
+  </div>
+  <div></div>
 
   <script src="https://threejsfundamentals.org/threejs/resources/threejs/r105/three.min.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/6.2.2/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/6.2.2/firebase-firestore.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-  <!-- The core Firebase JS SDK is always required and must be listed first -->
-
-  <!-- TODO: Add SDKs for Firebase products that you want to use
-     https://firebase.google.com/docs/web/setup#reserved-urls -->
-
-  <!-- Initialize Firebase -->
-  <script>
-
-    $(document).bind("contextmenu", function (e) {
-      e.preventDefault();
-    });
-    $(document).keydown(function (e) {
-      if (e.which === 123) {
-        return false;
-      }
-    });
-    var firebaseConfig = {
-      apiKey: "AIzaSyAZiBhz0aLaz8vIxF0cw-PwnlKVH6CNoH4",
-      authDomain: "corboration-265.firebaseapp.com",
-      databaseURL: "https://corboration-265.firebaseio.com",
-      projectId: "corboration-265",
-      storageBucket: "corboration-265.appspot.com",
-      messagingSenderId: "255151747207",
-      appId: "1:255151747207:web:b511f3a8f4e2a981"
-    };
-    // Initialize Firebase
-    firebase.initializeApp(firebaseConfig);
-    var db = firebase.firestore();
-    var path = "";
-
-    db.collection("demos").where("share", "==", true)
-      .get()
-      .then(function (querySnapshot) {
-        querySnapshot.forEach(function (doc) {
-          // doc.data() is never undefined for query doc snapshots
-          console.log(doc.id, " => ", doc.data());
-          path = doc.data().path;
-          console.log(path);
-        });
-      })
-      .catch(function (error) {
-        console.log("Error getting documents: ", error);
-      });
-
-
-    var rightSpinner = document.getElementById('dot-right');
-    var leftSpinner = document.getElementById('dot-left');
-    var sucka4clout = document.getElementById('sucka4clout');
-    sucka4clout.crossorigin = "no-cors";
-    var sucka4cloutSource = document.getElementById('sucka4cloutSource');
-
-
-
-    function loadPlayPause() {
-      if (sucka4clout.src == '') {
-        fetchAudioAndPlay()
-      } else {
-        if (sucka4clout.paused == true) {
-          sucka4clout.play();
-        } else {
-          sucka4clout.pause();
-        }
-      }
-    }
-
-    function fetchAudioAndPlay() {
-      sucka4clout.src = path;
-      sucka4clout.load();
-    }
-
-    // sucka4clout.crossOrigin = 'anonymous';
-    sucka4clout.addEventListener('timeupdate', function () {
-      var ranges = sucka4clout.played;
-      if (sucka4clout.currentTime >= 30) {
-        sucka4clout.pause();
-        sucka4clout.currentTime = 0;
-        ranges.start = 0;
-      }
-      var canvas = document.getElementById('buffered');
-      var context = canvas.getContext('2d');
-
-
-      context.clearRect(0, 0, canvas.width, canvas.height);
-
-      var spin = true;
-
-      for (var i = 0; i < ranges.length; i++) {
-        rightSpinner.setAttribute("style", "animation: rotate-pos 5s infinite");
-        leftSpinner.setAttribute("style", "animation: rotate-neg 5s infinite");
-        var startPercent = ranges.start(i) / sucka4clout.duration;
-        var endPercent = ranges.end(i) / 30;
-
-
-        context.fillRect(startPercent * canvas.width, 0,
-          (endPercent - startPercent) * canvas.width, canvas.height);
-
-      }
-
-
-
-    });
-
-  </script>
+  <script src="js/cube.js"></script>
 </body>
 
 </html>

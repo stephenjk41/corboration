@@ -1,12 +1,12 @@
 h3 {
+  font-size: calc(1.6rem + 0.5vh + 0.5vw);
   position: absolute;
   z-index: 1;
   color: #8a7e96;
-  top: 20%;
+  /* top: 20%;
   left: 50%;
   margin-right: -50%;
-  transform: translate(-50%, -50%);
-  font-size: calc(8px + 0.5vw + 0.5vh);
+  transform: translate(-50%, -50%); */
 }
 
 audio {
@@ -16,42 +16,78 @@ audio {
   /* width: 40vw;
   height: 10vh; */
 }
+#cover-art {
+  position: relative;
+}
+#cover {
+  position: relative;
+  width: 30rem;
+  height: 30rem;
+  border: 2px solid transparent;
+  border-radius: 12px;
+  margin-left: 6rem;
+  margin-top: 10rem;
+  margin-bottom: 10rem;
+}
 
-.test {
-  position: absolute;
-  height: 50vh;
-  width: 60%;
-  z-index: 1;
-  border: 2px solid black;
+#tape {
   background-color: #e7e8c2;
-  top: 50%;
-  left: 50%;
-  margin-right: -50%;
-  transform: translate(-50%, -50%);
-  font-size: calc(20px + 0.5vw + 0.5vh);
+  border: 2px solid black;
+  border-radius: 12px;
+  height: 30rem;
+  width: 45rem;
+  margin-top: 10rem;
+  position: relative;
 }
-h3 {
-  font-size: calc(20px + 0.5vw + 0.5vh);
+.title {
+  font-size: calc(1.7rem + 0.5vh + 0.5vw);
+  font-weight: bold;
+  margin-top: 1.5rem;
+  position: relative;
+  /* width: inherit; */
+  border-top: 2px solid black;
+  border-bottom: 2px solid black;
+  text-align: center;
+  height: 4rem;
+  color: #8a7e96;
+  margin-left: 5rem;
+  margin-right: 5rem;
 }
 
-button {
-  height: 30%;
-  width: 40%;
-  background-color: #e7e8c2; /* Green */
-  border: 2px solid #8a7e96;
-  padding: 15px 32px;
+.author {
+  font-size: calc(1.3rem + 0.5vh + 0.5vw);
+
+  position: relative;
+  /* width: inherit; */
+  border-bottom: 2px solid black;
   text-align: center;
-  display: inline-block;
-  font-size: calc(14px + 0.5vw + 0.5vh);
+  height: 4rem;
+  color: #8a7e96;
+  margin-left: 5rem;
+  margin-right: 5rem;
+}
+button:focus,
+button {
+  margin-top: 1rem;
+  outline: none;
+  height: 8rem;
+  width: 16rem;
+  border-radius: 10px;
+  background-color: #e7e8c2; /* Green */
+  border: 0.3rem solid #8a7e96;
+  padding: 1rem 1rem;
+  text-align: center;
+  /* display: inline-block; */
+  font-size: calc(1.4rem + 0.5vw + 0.5vh);
   font-family: "vcr_osd_monoregular";
+  font-weight: bold;
   color: #8a7e96;
   cursor: pointer;
-  outline: none;
-  margin: 0;
-  position: absolute;
+
+  /* position: absolute;
   top: 55%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%); */
 }
 
 .buffered {
@@ -60,33 +96,59 @@ button {
   height: 10%;
 }
 
-.dot-left {
+#dot-left {
   z-index: 1;
-  width: 150px;
-  height: 150px;
+  width: 10rem;
+  height: 10rem;
   background: #969777;
-  border: 10px solid #8a7e96;
+  border: 0.5rem solid #8a7e96;
   border-radius: 50%;
   border-bottom-color: #e7e8c2;
   border-right-color: #e7e8c2;
   position: absolute;
-  top: 60%;
-  left: 5%;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  margin-top: 5rem;
+  margin-bottom: 2rem;
+
+  /*top: 60%;
+  left: 5%; */
 }
 
-.dot-right {
+#dot-right {
   z-index: 1;
-  width: 150px;
-  height: 150px;
+  width: 10rem;
+  height: 10rem;
   background: #969777;
-  border: 10px solid #8a7e96;
+  border: 0.5rem solid #8a7e96;
   border-radius: 50%;
   border-bottom-color: #e7e8c2;
   border-right-color: #e7e8c2;
   position: absolute;
-  top: 60%;
-  left: 80%;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  margin-top: 5rem;
+  margin-bottom: 2rem;
+  /*top: 60%;
+  left: 80%; */
   /* transform: translate(-50%, -50%); */
+}
+
+.link-image {
+  position: relative;
+  height: 4rem;
+  width: 4rem;
+}
+
+#button-row {
+  position: relative;
+  width: 45rem;
+}
+
+#button-group {
+  position: relative;
+  margin-left: 15rem;
+  margin-top: 1rem;
 }
 
 @keyframes rotate-pos {

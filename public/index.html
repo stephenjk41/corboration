@@ -1,12 +1,14 @@
-<html lang="en">
-
 <html>
 
 <head>
-  <title>Corboration</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-  <link rel="stylesheet" href="css/cube.css">
+  <meta charset="UTF-8" />
+  <title>Corborations</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <script src="https://www.gstatic.com/firebasejs/6.2.3/firebase.js"></script>
   <link rel="stylesheet" href="css/body.css">
+  <link rel="stylesheet" href="css/demos.css">
+
 </head>
 
 <body>
@@ -14,21 +16,158 @@
     <!-- <li><a href="gallery.html">Gallery</a></li> -->
     <li><a href="demos.html">Demos</a></li>
     <!-- <li><a href="shop.html">Shop</a></li>
-    <li><a href="pricing.html">Pricing</a></li>  -->
+    <li><a href="pricing.html">Pricing</a></li> -->
     <li class="right"><a href="index.html">CORBORATIONS</a></li>
   </ul>
+  <!-- <h1>DEMOS</h1> -->
+  <div class="row">
+    <div class="col-sm">
+      <div class="container" id="cover-art">
+        <img src="" data-echo="" id="cover">
+      </div>
+    </div>
+    <div class="col-sm">
+      <div class="container" id="tape">
+        <canvas class="buffered" id='buffered' width='150' height='10'></canvas><br>
+        <div class="title">
+          /* TIME */
+        </div>
+        <div class="author">
+          CORBONABEAT & BIG BRODY
+        </div>
+        <div class="row">
+          <div class="col-sm">
+            <div class="spacing-top"></div>
+            <span id="dot-left" class="dot-left"></span>
+            <div class="spacing-bottom"></div>
+          </div>
+          <div class="col-sm">
 
-  <canvas id="responsive-canvas"></canvas>
-  <div class="corb">
-    <h1>CORBORATIONS</h1>
+            <audio id="sucka4clout">
+              <source id="sucka4cloutSource" src="" type="audio/mpeg">
+              </source>
+            </audio>
+            <button onclick='loadPlayPause()'>Play/Pause</button>
+          </div>
+          <div class="col-sm">
+            <span id="dot-right" class="dot-right"></span>
+          </div>
+        </div>
+      </div>
+      <div class="container" id="button-row">
+        <div class="row">
+          <div class="col-sm" id="button-group">
+            <a href="https://soundcloud.com/dabilliondollarbaby/suge" target="_blank" rel="noopener noreferrer"
+              style="border:none;text-decoration:none">
+              <img class="link-image" src="assets/iconfinder_apple_mac_iphone_apple_2986187.svg">
+            </a>
+            <a href="https://soundcloud.com/dabilliondollarbaby/suge" target="_blank" rel="noopener noreferrer"
+              style="border:none;text-decoration:none">
+              <img class="link-image" src="assets/iconfinder__spotify_2560361.svg">
+            </a>
+            <a href="https://soundcloud.com/dabilliondollarbaby/suge" target="_blank" rel="noopener noreferrer"
+              style="border:none;text-decoration:none">
+              <img class="link-image" src="assets/iconfinder_soundcloud_312648.svg">
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-  <div class="soon">
-    <h1>COMING SOON</h1>
-  </div>
-  <div></div>
+  <script src="js/echo.js"></script>
+  <script>
+    var firebaseConfig = {
+      apiKey: "AIzaSyAZiBhz0aLaz8vIxF0cw-PwnlKVH6CNoH4",
+      authDomain: "corboration-265.firebaseapp.com",
+      databaseURL: "https://corboration-265.firebaseio.com",
+      projectId: "corboration-265",
+      storageBucket: "corboration-265.appspot.com",
+      messagingSenderId: "255151747207",
+      appId: "1:255151747207:web:b511f3a8f4e2a981"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
 
-  <script src="https://threejsfundamentals.org/threejs/resources/threejs/r105/three.min.js"></script>
-  <script src="js/cube.js"></script>
+    var storageSong = firebase.storage();
+    var storageRefSong = storageSong.ref();
+    var DropsRefSong = storageRefSong.child('Drops');
+    var SongRefSong = DropsRefSong.child('time.wav');
+
+    var storageCover = firebase.storage();
+    var storageRefCover = storageCover.ref();
+    var DropsRefCover = storageRefCover.child('Covers');
+    var CoverRefCover = DropsRefCover.child('time.jpg');
+
+
+    CoverRefCover.getDownloadURL().then(function (url) {
+      var img = document.getElementById('cover');
+      img.src = url;
+
+    });
+
+    let link;
+    var song = document.getElementById('sucka4clout');
+    SongRefSong.getDownloadURL().then(function (url) {
+
+      link = url;
+      song.src = link;
+      song.load();
+      console.log(link)
+    }).catch(function (error) {
+      console.log("error");
+    });
+
+    song.crossorigin = "no-cors";
+    function loadPlayPause() {
+      if (song.paused == true) {
+        song.play();
+      } else {
+        song.pause();
+      }
+    }
+
+
+    var leftSpinner = document.getElementById('dot-left');
+    var rightSpinner = document.getElementById('dot-right');
+
+    // song.crossOrigin = 'anonymous';
+    song.addEventListener('timeupdate', function () {
+      var ranges = song.played;
+      if (song.currentTime >= song.duration) {
+        song.pause();
+        song.currentTime = 0;
+        ranges.start = 0;
+      }
+
+      if (song.paused == true) {
+        rightSpinner.setAttribute("style", "animation: none");
+        leftSpinner.setAttribute("style", "animation: none");
+      } else {
+        rightSpinner.setAttribute("style", "animation: rotate-pos 5s infinite");
+        leftSpinner.setAttribute("style", "animation: rotate-neg 5s infinite");
+      }
+
+      var canvas = document.getElementById('buffered');
+      var context = canvas.getContext('2d');
+      context.clearRect(0, 0, canvas.width, canvas.height);
+      for (var i = 0; i < ranges.length; i++) {
+        var startPercent = ranges.start(i) / song.duration;
+        var endPercent = ranges.end(i) / song.duration;
+        context.fillRect(startPercent * canvas.width, 0,
+          (endPercent - startPercent) * canvas.width, canvas.height);
+
+      }
+    });
+  </script>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
 </body>
 
 </html>

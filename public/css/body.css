@@ -11,7 +11,7 @@ body {
   width: 100%;
   font-family: "vcr_osd_monoregular";
   background-color: #e7e8c2;
-  overflow-y: hidden;
+  overflow-x: hidden;
 }
 .corb {
   position: absolute;
@@ -47,6 +47,7 @@ ul {
 li {
   z-index: 1;
   float: left;
+  text-decoration: none;
 }
 
 li a {
@@ -56,12 +57,16 @@ li a {
   text-align: center;
   padding: 1vh 1vw;
   text-decoration: none;
-  font-size: calc(8px + 0.5vw + 0.5vh);
+  font-size: calc(2rem + 0.5vw + 0.5vh);
 }
 
 li a:hover {
+  border-radius: 10px;
   z-index: 1;
   background-color: #969777;
+  color: #b594d6;
+  text-shadow: 2px 2px #ffffff;
+  text-decoration: none;
 }
 
 .right {
