@@ -68,7 +68,7 @@ audio {
 }
 button:focus,
 button {
-  margin-top: 1rem;
+  margin-top: 3rem;
   outline: none;
   height: 8rem;
   width: 16rem;
